@@ -30,6 +30,11 @@ function square_left_cb(game, index) {
     const row = Math.floor(index / status.ncols);
     const col = index % status.ncols;
 
+    // Start timer after first click
+    if (status.nuncovered === 0) {
+        startTimer();
+    }
+
     game.uncover(row, col);
     render(game);
 
@@ -78,7 +83,9 @@ function square_right_cb(game, index) {
  */
 
 function menu_cb(game, rows, cols, mines) {
-    startTimer();
+    // Reset time once new difficulty chosen 
+    stopTimer();
+    document.querySelector(".timer").textContent = 0;
 
     game.init(rows, cols, mines);
     render(game);
