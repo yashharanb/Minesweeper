@@ -108,7 +108,11 @@ function prepare_dom(game) {
         });
 
         square.addEventListener("contextmenu", e => {
-            square_right_cb(game, i);
+            if (e.button === 2) {
+                // If right click mouse button pressed 
+                // This check prevents the code from being executed on mobile when long tap is released 
+                square_right_cb(game, i);
+            }
             // prevent right click menu from being displayed
             e.preventDefault();
         });
