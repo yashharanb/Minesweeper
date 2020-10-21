@@ -4,13 +4,13 @@
 }
 
 body {
-  background: rgb(255, 237, 179);
+  background: #4d4f54;
 }
 
 .square {
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: gray;
+  background-color: #4463b3;
   text-align: center;
 
   width: auto;
@@ -21,8 +21,17 @@ body {
   margin: 1px;
 }
 
-.square._0 {
-  background-color: white;
+.square._H:hover {
+  background-color: #537ce6;
+}
+
+.square._F:hover, .square._M:hover {
+  background-color: #4463b3;
+}
+
+.square._0, .square._1, .square._2, .square._3, .square._4, 
+.square._0:hover, .square._1:hover, .square._2:hover, .square._3:hover, .square._4:hover {
+  background-color: #97a0c2;
 }
 
 .square._1 {
@@ -74,7 +83,7 @@ body {
   margin: 0px;
 }
 
-.menu {
+.menu, .status {
   display: flex;
   justify-content: center;
   margin-bottom: 0.5em;
@@ -95,6 +104,10 @@ body {
 .menuButton:hover {
   color: white;
   background: black;
+}
+
+.mines {
+  margin-right: 20px;
 }
 
 .gridwrapper {
@@ -159,11 +172,6 @@ p.darker {
   color: #aaa;
 }
 
-@keyframes glow {
-  from { text-shadow: 0 0 20px rgb(255, 255, 0); }
-  to { text-shadow: 0 0 20px rgb(255, 115, 0); }
-}
-
 #overlay.active #overlayin {
   opacity: 0;
   animation: spinIn 1s ease-in-out;
@@ -187,10 +195,4 @@ p.darker {
 @keyframes spinIn {
   from { transform: scale(0.1) rotateX(0deg) ; opacity: 0; }
   to { transform: scale(1) rotateX(360deg) ;  opacity: 1; }
-}
-
-.status {
-  margin-top: 5px;
-  text-align: center;
-  color: gray;
 }

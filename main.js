@@ -30,10 +30,6 @@ function square_left_cb(game, index) {
     const row = Math.floor(index / status.ncols);
     const col = index % status.ncols;
 
-    // if (status.nuncovered === 0) {
-    //     startTimer();
-    // }
-
     game.uncover(row, col);
     render(game);
 
