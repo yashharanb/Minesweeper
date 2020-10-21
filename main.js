@@ -1,6 +1,7 @@
 window.addEventListener('load', main);
 
 let timer = null;
+let pressTimer = null;
 
 function startTimer() {
     stopTimer();
@@ -112,6 +113,19 @@ function prepare_dom(game) {
             e.preventDefault();
         });
 
+        // Handle adding a flag with a 1 second long press
+        square.onpointerdown = function() {
+            pressTimer = window.setTimeout(function() { 
+                square_right_cb(game, i);
+            }, 1000);
+            return false; 
+        };
+
+        square.onpointerup = function() {
+            clearTimeout(pressTimer);
+            return false;
+        };
+
         grid.appendChild(square);
     }
 }
@@ -128,8 +142,6 @@ function render(game) {
     const status = game.getStatus();
     const grid = document.querySelector(".grid");
     grid.style.gridTemplateColumns = `repeat(${status.ncols}, 1fr)`;
-
-    // grid.style.gridTemplateRows = `repeat(${status.nrows}, 1fr)`;
 
     for (let i = 0; i < grid.children.length; i++) {
         const square = grid.children[i];
@@ -150,13 +162,6 @@ function render(game) {
             const col = ind % status.ncols;
             const state = rendering[row][col];
             square.classList.add("_" + state);
-            
-            // if (state === "H") {
-            //     square.textContent = "";
-            // }
-            // else {
-            //     square.textContent = state;
-            // }
         }
     }
 

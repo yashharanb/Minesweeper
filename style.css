@@ -27,8 +27,6 @@ body {
 
 .square._1 {
   background-image: url(images/number_1.png);
-  /* opacity: 1;
-  transform: rotateY(0deg); */
 }
 
 .square._2 {
@@ -54,11 +52,9 @@ body {
 .grid {
   display: grid;
   grid-template-columns: repeat(9, 1fr);
-  /* grid-template-rows: repeat(9, 1fr); */
   border-radius: 10px;
   padding:5px;
   width: 70vh;
-  /* height: 60vh; */
   max-width: 800px;
 }
 
