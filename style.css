@@ -64,7 +64,6 @@ body {
   border-radius: 10px;
   padding:5px;
   width: 70vh;
-  max-width: 800px;
 }
 
 .grid > div::before {
